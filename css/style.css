@@ -1,3 +1,4 @@
+/* Impostazioni generali */
 .center{
   text-align: center;
 }
@@ -5,11 +6,19 @@
   margin: 20px auto;
   width: 710px;
 }
-.direzioni span{
+
+/* Impostazione bottoni */
+.direzioni button{
   margin: 3px;
   padding: 5px;
   border: 1px solid black;
 }
+.direzioni button:hover{
+  background: black;
+  color: white;
+}
+
+/* Impostazione calendario */
 .calendar{
   display: flex;
   flex-flow: wrap;

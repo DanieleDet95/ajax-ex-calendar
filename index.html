@@ -11,18 +11,24 @@
   <title>Document</title>
 </head>
 <body>
+  <!-- Titolo -->
   <h1 class="center">Calendario 2018</h1>
 
+  <!-- Sottotitolo -->
   <h3 class="center"><span class="mese"></span> 2018</h3>
+
+  <!-- Contenitore bottoni next e prew -->
   <div class="direzioni center">
-    <span id="prew">&larr; Precedente</span>
-    <span id="next">Successivo &rarr;</span>
+    <button id="prew">&larr; Precedente</button>
+    <button id="next">Successivo &rarr;</button>
   </div>
 
+  <!-- Contenitore calendario -->
   <div class="calendar centrato">
     <!-- Codice da aggiungere -->
   </div>
 
+  <!-- Template handlebars dei giorni -->
   <script id="day-template" type="text/x-handlebars-template">
     <div class="day {{colore}}">
       {{giorno}}
@@ -30,6 +36,7 @@
     </div>
   </script>
 
+  <!-- Connessione js -->
   <script type="text/javascript" src="js/script.js"></script>
 </body>
 </html>
