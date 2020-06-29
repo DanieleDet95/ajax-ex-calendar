@@ -1,0 +1,15 @@
+.center{
+  text-align: center;
+}
+.centrato{
+  margin: 20px auto;
+  width: 200px;
+}
+.red{
+  color: red;
+}
+.direzioni span{
+  margin: 3px;
+  padding: 5px;
+  border: 1px solid black;
+}
