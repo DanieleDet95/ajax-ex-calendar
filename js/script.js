@@ -11,6 +11,9 @@ $(document).ready(function(){
   // Chiedere all’api quali sono le festività per il mese scelto
   // Evidenziare le festività nella lista
 
+  // Implementazione Handlebars
+  var source = document.getElementById("day-template").innerHTML;
+  var template = Handlebars.compile(source);
 
   $.ajax({
     url: 'https://flynn.boolean.careers/exercises/api/holidays?year=2018&month=0',
@@ -36,13 +39,12 @@ $(document).ready(function(){
       // Inserimento mese corrente in una variabile con stampa a schermo
       var mese = day.format('MMMM');
       $('.mese').text(mese);
-
       // Conteggio giorni nel mese
       var giorniMese = day.daysInMonth();
 
       // Stampa di tutti i giorni del mese
       // Ciclo per tutti i giorni del mese meno le festivita
-      for (var i = 1; i <= giorniMese - festivita.length; i++) {
+      for (var i = 0; i < giorniMese; i++) {
 
         // Ciclo per tutte le festivita del mese
         for (var j = 0; j < festivita.length; j++) {
@@ -51,18 +53,35 @@ $(document).ready(function(){
           if(day.format('YYYY-MM-DD') == festivita[j].date){
 
             // Stampa il giorno con la festivita
-            $('.calendar').append('<li class="red">'+day.format('DD MMMM - ') + festivita[j].name + '</li>');
+            var context = {
+              colore: "red",
+              giorno: day.format('DD MMMM  ') + festivita[j].name,
+              settimana: day.format('ddd')
+            };
+            var html = template(context);
+            $('.calendar').append(html);
 
             // Incremento del giorno
             day.add(1, 'days');
+            i++;
           }
         }
 
-        // Stampa il giorno
-        $('.calendar').append('<li>' + day.format('DD MMMM ') + '</li>');
+        // Se nel giorno successivo comprende il mese corrente stampa
+        if(day.format('MMMM') == mese){
+          // Stampa il giorno
+          // Stampa il giorno con la festivita
+          var context = {
+            giorno: day.format('DD MMMM'),
+            settimana: day.format('ddd')
+          };
+          var html = template(context);
+          $('.calendar').append(html);
 
-        // Incremento del giorno
-        day.add(1, 'days');
+          // Incremento del giorno
+          day.add(1, 'days');
+        }
+
       }
     },
 

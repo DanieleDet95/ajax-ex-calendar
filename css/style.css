@@ -3,13 +3,30 @@
 }
 .centrato{
   margin: 20px auto;
-  width: 200px;
-}
-.red{
-  color: red;
+  width: 710px;
 }
 .direzioni span{
   margin: 3px;
   padding: 5px;
   border: 1px solid black;
+}
+.calendar{
+  display: flex;
+  flex-flow: wrap;
+}
+.calendar div{
+  width: 89px;
+  height: 65px;
+  border: 1px solid black;
+  padding: 5px;
+  position: relative;
+  margin: 0.5px;
+}
+.week{
+  position: absolute;
+  bottom: -10px;
+  right: 10px;
+}
+.red{
+  background: red;
 }
