@@ -4,7 +4,7 @@
 }
 .centrato{
   margin: 20px auto;
-  width: 710px;
+  width: 715px;
 }
 
 /* Impostazione bottoni */
@@ -23,13 +23,18 @@
   display: flex;
   flex-flow: wrap;
 }
-.calendar div{
+.calendar .day{
   width: 89px;
   height: 65px;
   border: 1px solid black;
   padding: 5px;
   position: relative;
   margin: 0.5px;
+}
+.day .festivita{
+  margin: 0;
+  font-size: 13px;
+  padding: 0px;
 }
 .week{
   position: absolute;
